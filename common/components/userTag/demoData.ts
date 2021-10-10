@@ -6,6 +6,7 @@ const demoData = {
   },
   user: {
     required: true,
+    description: "{name, type, age}",
     value: {
       name: "Kareem Fathy",
       type: "client",

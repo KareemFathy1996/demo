@@ -26,14 +26,24 @@ const Demo = (props: IProps) => {
 
   // handlers
   const moduleChange = (module: string) => {
-    setDemoState((prevState: any) => {
-      return { ...prevState, module: module, demoProps: {} };
-    });
+    if (module == demoState.module)
+      setDemoState((prevState: any) => {
+        return { ...prevState, module: "", demoProps: {} };
+      });
+    else
+      setDemoState((prevState: any) => {
+        return { ...prevState, module: module, demoProps: {} };
+      });
   };
   const componentChange = (component: string) => {
-    setDemoState((prevState: any) => {
-      return { ...prevState, component: component, demoProps: {} };
-    });
+    if (component == demoState.component)
+      setDemoState((prevState: any) => {
+        return { ...prevState, component: "", demoProps: {} };
+      });
+    else
+      setDemoState((prevState: any) => {
+        return { ...prevState, component: component, demoProps: {} };
+      });
   };
   const propChanged = (key: string, value: any) => {
     setDemoProps({
@@ -112,6 +122,8 @@ const Demo = (props: IProps) => {
                       propChanged(key, e.target.value);
                     }}
                   />
+                ) : description ? (
+                  <span>{description}</span>
                 ) : (
                   <span>
                     {key}: {value.toString()}

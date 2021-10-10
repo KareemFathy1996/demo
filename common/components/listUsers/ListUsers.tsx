@@ -23,6 +23,7 @@ const ListUsers = ({ users = [] }: IProps) => {
 
   return (
     <div style={{ display: "block" }}>
+      {(!users || users.length == 0) && <p>List is Empty</p>}
       {users.map((user, index) => {
         return <UserTag key={index} user={user} />;
       })}

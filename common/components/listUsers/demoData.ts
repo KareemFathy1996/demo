@@ -1,5 +1,6 @@
 const demoData = {
   users: {
+    description: "[{name, type, age}]",
     value: [
       {
         name: "Kareem Fathy",
